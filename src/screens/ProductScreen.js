@@ -29,12 +29,12 @@ const ProductScreen = ({ match, history }) => {
 
                 <Row>
                     <Col md={6}>
-                        <Image src={productDetail.image} alt={productDetail.name} fluid />
+                        <Image src={productDetail.image} alt={productDetail.title} fluid />
                     </Col>
                     <Col md={3}>
                         <ListGroup variant="flush">
                             <ListGroup.Item className="py-3">
-                                <h3>{productDetail.name}</h3>
+                                <h3>{productDetail.title}</h3>
                             </ListGroup.Item >
                             <ListGroup.Item className="py-3">
                                 Price: ${`${productDetail.price}`}
@@ -62,23 +62,15 @@ const ProductScreen = ({ match, history }) => {
                                                 as="select"
                                                 value={qty}
                                                 onChange={(e) => setQty(e.target.value)}>
-
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-
-
+                                                {[1, 2, 3, 4].map((el, id) => <option key={id}>{el}</option>)}
                                             </Form.Control>
                                         </Col>
                                     </Row>
                                 </ListGroup.Item>
-
-
                                 <ListGroup.Item className="text-center">
                                     <Button
                                         className="btn-block" type="button"
-                                        disabled={productDetail.countInStock === 0}
+                                        variant="info"
                                         onClick={addToCardHandler}
                                     >
                                         ADD TO CART
