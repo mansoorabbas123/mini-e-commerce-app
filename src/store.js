@@ -4,17 +4,16 @@ import thunk from 'redux-thunk'
 // import logger from 'redux-logger'
 import {
     productListReducer,
+    productDetailsReducer,
 } from './reducers/productReducers'
 
 
 const rootReducers = combineReducers({
     productList: productListReducer,
-
-
+    productDetails: productDetailsReducer,
 })
 
 const middleWare = [thunk]
-
 
 const initialState = {};
 
